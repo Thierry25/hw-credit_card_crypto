@@ -10,12 +10,16 @@ module LuhnValidator
     nums_a = number.to_s.chars.map(&:to_i)
     last_digit = nums_a.pop
     # TODO: use the integers in nums_a to validate its last check digit
-    multipled = nums_a.reverse.each_with_index.map { |val, index| index.odd? ? val : val * 2 }
+    multipled = multiply(nums_a)
     sum = 0
     multipled.each do |val|
       val = (val % 10) + (val / 10) if val >= 10
       sum += val
     end
     last_digit == ((10 - (sum % 10)) % 10)
+  end
+
+  def multiply(data)
+    data.reverse.each_with_index.map { |val, index| index.odd? ? val : val * 2 }
   end
 end
