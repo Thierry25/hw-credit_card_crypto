@@ -20,10 +20,10 @@ class CreditCard
     {
       # TODO: setup the hash with all instance vairables to serialize into json
       'credit_card' => {
-        'number' => number,
-        'expiration_date' => expiration_date,
-        'owner' => owner,
-        'credit_network' => credit_network
+        'number' => @number,
+        'expiration_date' => @expiration_date,
+        'owner' => @owner,
+        'credit_network' => @credit_network
       }
     }.to_json
   end
